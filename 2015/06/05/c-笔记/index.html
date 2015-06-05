@@ -4,17 +4,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2015/1 | zhiqiu</title>
+  <title>c++笔记 | zhiqiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="zhiqiu">
-<meta property="og:url" content="http://zhiqiu.github.io/archives/2015/01/index.html">
+  <meta name="description" content="宏1#define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
+
+0
+((TYPE *)0)
+( ((TYPE *)0)-&amp;gt;MEMBER )
+&amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
+( (size_t) &amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
+
+从0开始
+
+把0转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++笔记">
+<meta property="og:url" content="http://zhiqiu.github.io/2015/06/05/c-笔记/index.html">
 <meta property="og:site_name" content="zhiqiu">
-<meta property="og:description">
+<meta property="og:description" content="宏1#define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
+
+0
+((TYPE *)0)
+( ((TYPE *)0)-&amp;gt;MEMBER )
+&amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
+( (size_t) &amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
+
+从0开始
+
+把0转换">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="zhiqiu">
-<meta name="twitter:description">
+<meta name="twitter:title" content="c++笔记">
+<meta name="twitter:description" content="宏1#define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
+
+0
+((TYPE *)0)
+( ((TYPE *)0)-&amp;gt;MEMBER )
+&amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
+( (size_t) &amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
+
+从0开始
+
+把0转换">
   
     <link rel="alternative" href="/atom.xml" title="zhiqiu" type="application/atom+xml">
   
@@ -86,96 +116,81 @@ ga('send', 'pageview');
   </div>
 </header>
     <div class="outer">
-      <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/01/24/sizeof的使用/" class="archive-article-date">
-  <time datetime="2015-01-24T11:00:49.000Z" itemprop="datePublished">Jan 24</time>
+      <section id="main"><article id="post-c-笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/05/c-笔记/" class="article-date">
+  <time datetime="2015-06-05T02:22:08.000Z" itemprop="datePublished">Jun 5 2015</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/24/sizeof的使用/">sizeof的使用</a>
+    <h1 class="article-title" itemprop="name">
+      c++笔记
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/01/14/database/" class="archive-article-date">
-  <time datetime="2015-01-14T02:25:13.000Z" itemprop="datePublished">Jan 14</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/14/database/">database</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/01/10/sicily-1509-Rails/" class="archive-article-date">
-  <time datetime="2015-01-10T04:36:29.000Z" itemprop="datePublished">Jan 10</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/10/sicily-1509-Rails/">sicily 1509 Rails</a>
-    </h1>
-  
+        
+        
+          <h4 id="宏">宏</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>0</li>
+<li>((TYPE *)0)</li>
+<li>( ((TYPE *)0)-&gt;MEMBER )</li>
+<li>&amp;( ((TYPE *)0)-&gt;MEMBER )</li>
+<li><p>( (size_t) &amp;( ((TYPE *)0)-&gt;MEMBER )</p>
+</li>
+<li><p>从0开始</p>
+</li>
+<li>把0转换成TYPE*类型的指针</li>
+<li>（让编译器‘认为’0x0000位置是TYPE类型结构体的首地址），然后指向成员MEMBER</li>
+<li>取MEMBER的地址 (比如是0x004)</li>
+<li>转换成size_t, 即整数。得到MEMBER的offset</li>
+</ol>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/01/10/hello-world/" class="archive-article-date">
-  <time datetime="2015-01-09T17:42:22.000Z" itemprop="datePublished">Jan 10</time>
-</a>
+        
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/10/hello-world/">Hello World</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://zhiqiu.github.io/2015/06/05/c-笔记/" data-id="ciaiztc3v000k9gcmvjwpk71w" class="article-share-link" data-share="baidu">Share</a>
+      
 
-    </header>
+      
+        <a href="http://zhiqiu.github.io/2015/06/05/c-笔记/#ds-thread" class="article-comment-link">Comments</a>
+      
+
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/04/17/两个日期间闰年个数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">两个日期间2月29的个数</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/06/05/c-笔记/" data-title="c++笔记" data-url="http://zhiqiu.github.io/2015/06/05/c-笔记/"></div>
+  </section>
 </section>
       
       <aside id="sidebar">
