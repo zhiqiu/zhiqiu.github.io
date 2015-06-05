@@ -113,7 +113,7 @@ ga('send', 'pageview');
       
         
         
-          <h4 id="宏">宏</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span></span><br></pre></td></tr></table></figure>
+          <h4 id="宏">宏</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="preprocessor">#<span class="keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>                         <span class="number">0</span>           </span><br><span class="line"><span class="number">2.</span>                ((TYPE *)<span class="number">0</span>)</span><br><span class="line"><span class="number">3.</span>              ( ((TYPE *)<span class="number">0</span>)-&gt;MEMBER )</span><br><span class="line"><span class="number">4.</span>             &amp;( ((TYPE *)<span class="number">0</span>)-&gt;MEMBER )</span><br><span class="line"><span class="number">5.</span>  ( (size_t) &amp;( ((TYPE *)<span class="number">0</span>)-&gt;MEMBER )</span><br></pre></td></tr></table></figure>
           
           <p class="article-more-link">
             <a href="/2015/06/05/c-笔记/#more">Read More</a>

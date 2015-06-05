@@ -6,45 +6,15 @@
   
   <title>c++笔记 | zhiqiu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="宏1#define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
-
-0
-((TYPE *)0)
-( ((TYPE *)0)-&amp;gt;MEMBER )
-&amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
-( (size_t) &amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
-
-从0开始
-
-把0转换">
+  <meta name="description" content="宏1234567 #define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)1.                         0           2.                ((TYPE *)0)3.              ( ((TYPE *)0)-&amp;gt;MEMBER )4.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c++笔记">
 <meta property="og:url" content="http://zhiqiu.github.io/2015/06/05/c-笔记/index.html">
 <meta property="og:site_name" content="zhiqiu">
-<meta property="og:description" content="宏1#define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
-
-0
-((TYPE *)0)
-( ((TYPE *)0)-&amp;gt;MEMBER )
-&amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
-( (size_t) &amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
-
-从0开始
-
-把0转换">
+<meta property="og:description" content="宏1234567 #define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)1.                         0           2.                ((TYPE *)0)3.              ( ((TYPE *)0)-&amp;gt;MEMBER )4.">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++笔记">
-<meta name="twitter:description" content="宏1#define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)
-
-0
-((TYPE *)0)
-( ((TYPE *)0)-&amp;gt;MEMBER )
-&amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
-( (size_t) &amp;amp;( ((TYPE *)0)-&amp;gt;MEMBER )
-
-从0开始
-
-把0转换">
+<meta name="twitter:description" content="宏1234567 #define offsetof(TYPE, MEMBER) ((size_t) &amp;amp;((TYPE *)0)-&amp;gt;MEMBER)1.                         0           2.                ((TYPE *)0)3.              ( ((TYPE *)0)-&amp;gt;MEMBER )4.">
   
     <link rel="alternative" href="/atom.xml" title="zhiqiu" type="application/atom+xml">
   
@@ -141,22 +111,15 @@ ga('send', 'pageview');
       
         
         
-          <h4 id="宏">宏</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span></span><br></pre></td></tr></table></figure>
+          <h4 id="宏">宏</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="preprocessor">#<span class="keyword">define</span> offsetof(TYPE, MEMBER) ((size_t) &amp;((TYPE *)0)-&gt;MEMBER)</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>                         <span class="number">0</span>           </span><br><span class="line"><span class="number">2.</span>                ((TYPE *)<span class="number">0</span>)</span><br><span class="line"><span class="number">3.</span>              ( ((TYPE *)<span class="number">0</span>)-&gt;MEMBER )</span><br><span class="line"><span class="number">4.</span>             &amp;( ((TYPE *)<span class="number">0</span>)-&gt;MEMBER )</span><br><span class="line"><span class="number">5.</span>  ( (size_t) &amp;( ((TYPE *)<span class="number">0</span>)-&gt;MEMBER )</span><br></pre></td></tr></table></figure>
 <ol>
-<li>0</li>
-<li>((TYPE *)0)</li>
-<li>( ((TYPE *)0)-&gt;MEMBER )</li>
-<li>&amp;( ((TYPE *)0)-&gt;MEMBER )</li>
-<li><p>( (size_t) &amp;( ((TYPE *)0)-&gt;MEMBER )</p>
-</li>
-<li><p>从0开始</p>
-</li>
+<li>从0开始</li>
 <li>把0转换成TYPE*类型的指针</li>
 <li>（让编译器‘认为’0x0000位置是TYPE类型结构体的首地址），然后指向成员MEMBER</li>
 <li>取MEMBER的地址 (比如是0x004)</li>
-<li>转换成size_t, 即整数。得到MEMBER的offset</li>
+<li>转换成size_t, 即整数。得到MEMBER的offset<br>也可以写成</li>
 </ol>
-
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">define</span> offsetof(TYPE, MEMBER) ( (size_t) &amp;( ((TYPE *)3264)-&gt;MEMBER ) - 3264 )</span></span><br></pre></td></tr></table></figure>
         
       
     </div>
