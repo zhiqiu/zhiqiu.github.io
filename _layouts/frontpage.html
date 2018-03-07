@@ -1,0 +1,111 @@
+---
+layout: default
+---
+    
+<div class="row">
+  <div id="myArticle" class="col-sm-9">
+    <div class="post-area post">
+      <article>
+        {{content}}
+      </article>
+    </div>
+  </div>
+</div>
+<p><br/></p>
+<div id="index" class="row">
+  <div class="col-sm-9">
+    <div class="post-area ">
+	  <div class="post-list-header">
+	  Portfolio
+	  </div>
+      <div class="post-list-body">
+        <div class="all-posts" post-cate="All">
+          {% for post in site.posts %}
+            {% if post.link %}
+              {% assign link = post.link %}
+            {% else %}
+              {% assign link = post.url | prepend: site.baseurl %}
+            {% endif %}
+            <a class="post-list-item" href="{{ link }}" >
+
+                <img class="img" src="{{ post.img }}" alt="Desk">
+
+
+                <div class="text">
+                  <h2>
+                  {{ post.title }}
+                  </h2>
+
+                  {% if post.tags != empty %}
+                    <i style="max-width:5%" class="fa fa-tags"></i>
+                    {% for tag in post.tags %}
+                      <p style="margin-left:1%" class="tag-text">{{ tag }}</p>
+                    {% endfor %}
+                  {% endif %}
+
+                  <p/>
+                  <p/>
+                  <span class="">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+                  <p style="margin-top:5%">{{post.abstract}}</p>
+
+                </div>
+            </a>
+          {% endfor %}
+        </div>
+        <!-- <div class="posts-in-categories"> -->
+        {% for category in site.categories %}
+          <div post-cate="{{category | first}}">
+            {% for posts in category  %}
+              {% for post in posts %}
+                {% if post.url %}
+                  <a href="{{ post.url }}" class="post-list-item">
+                
+                    <img class="img" src="{{ post.img }}" alt="Desk">
+                    <div class="text">
+                      <h2>
+                      {{ post.title }}
+                      </h2>
+
+                      {% if post.tags != empty %}
+                        <i style="max-width:5%" class="fa fa-tags"></i>
+                        {% for tag in post.tags %}
+                          <p style="margin-left:1%" class="tag-text">{{ tag }}</p>
+                        {% endfor %}
+                      {% endif %}
+
+                      <p/>
+                      <p/>
+                      <span class="">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+                      <p style="margin-top:5%">{{post.abstract}}</p>
+
+                    </div>
+
+                  </a>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="shadow-corner-curl hidden-xs">
+      <div class="categories-list-header">
+        Categories
+      </div>
+      
+      <a href="javascript:;" class="categories-list-item" cate="All">
+        All<span class="my-badge"> {{site.posts | size}}</span>
+      </a>
+      {% for category in site.categories %}
+        <a href="javascript:;" class="categories-list-item" cate="{{ category | first }}">
+          {{ category | first }} <span class="my-badge">{{ category | last | size }}</span>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
