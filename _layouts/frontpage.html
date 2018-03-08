@@ -21,6 +21,7 @@ layout: default
       <div class="post-list-body">
         <div class="all-posts" post-cate="All">
           {% for post in site.posts %}
+          {% if post.portfolio %}
             {% if post.link %}
               {% assign link = post.link %}
             {% else %}
@@ -51,6 +52,7 @@ layout: default
 
                 </div>
             </a>
+            {% endif %}
           {% endfor %}
         </div>
         <!-- <div class="posts-in-categories"> -->
