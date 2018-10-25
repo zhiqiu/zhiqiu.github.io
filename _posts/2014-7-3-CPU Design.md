@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-categories: Diary Project
+categories: diary project
 
 title: CPU Design
 img: /images/cpu.jpg
