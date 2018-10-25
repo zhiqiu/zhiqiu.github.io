@@ -2,7 +2,7 @@
 layout: post
 comments: true
 categories: Diary Droject
-portfolio: false
+portfolio: true
 
 title: Data Race Detection
 img: /images/dilp.jpg
