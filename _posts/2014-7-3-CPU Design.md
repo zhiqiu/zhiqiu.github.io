@@ -1,14 +1,12 @@
 ---
 layout: post
 comments: true
-categories: diary project
-
+categories: Diary Project
+portfolio: true
 title: CPU Design
 img: /images/cpu.jpg
 abstract: "A five stage pipeline CPU based on Verilog, running on Xilinx FPGA board."
 tags: Verilog cpu
-
-tags: latex
 ---
 
 
