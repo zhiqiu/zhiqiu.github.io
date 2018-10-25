@@ -2,7 +2,6 @@
 layout: post
 comments: true
 categories: Diary Project
-portfolio: true
 
 title: Data Race Detection
 img: /images/dilp.jpg
